@@ -16,7 +16,8 @@ roomlist = requests.get(roomlist_url, headers=headers)
 # print(roomlist.json())
 
 for item in roomlist.json()['items']:
-    if item['title'] == "Yogalicious":
+    if item['title'] == "Mari test room":
         room_id = item['id']
+        deleteRoom_url = f"{config['WEBEX_BASE_URL']}/v1/rooms/{room_id}"
+        roomlist = requests.delete(deleteRoom_url, headers=headers)
 
-print(room_id)

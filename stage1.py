@@ -25,7 +25,9 @@ for item in roomlist.json()['items']:
 payload = {
     'title': 'Mari test room'
 }
-    
+
+myRoomId = 'Y2lzY29zcGFyazovL3VzL1JPT00vYTY3ODUzZDAtODBiZC0xMWViLThjYmItM2ZlNDQyZDUyYzI4'
+
 if counter == '0':
     myRoom = requests.post(roomlist_url, headers=headers, data=payload)
     myRoomId = myRoom.json()['id']

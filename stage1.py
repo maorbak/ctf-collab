@@ -22,14 +22,24 @@ for item in roomlist.json()['items']:
     if item['title'] == 'Mari test room':
         counter = '1'
     
-myRoom_url = f"{WEBEX_BASE_URL}/v1/rooms"
 payload = {
     'title': 'Mari test room'
 }
-roomlist_url = f"{config['WEBEX_BASE_URL']}/v1/rooms"
     
 if counter == '0':
-    myRoom = requests.post(myRoom_url, headers=headers, data=payload)
+    myRoom = requests.post(roomlist_url, headers=headers, data=payload)
     myRoomId = myRoom.json()['id']
-
+    
+# Create new room
 print(myRoomId)
+
+membership_url = f"{config['WEBEX_BASE_URL']}/v1/memberships?roomId={myRoomId}"
+membership = requests.get(membership_url, headers=headers)
+
+payloadMember = {
+    "personEmail": "mneiding@cisco.com"
+}
+
+# addMember = requests.post(membership_url, headers=headers, data=payloadMember)
+
+# print(membership.json())

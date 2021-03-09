@@ -43,3 +43,11 @@ payloadMember = {
 # addMember = requests.post(membership_url, headers=headers, data=payloadMember)
 
 # print(membership.json())
+
+payloadMessage = {
+    "roomId": myRoomId,
+    'text': 'Hi Marcel. Here you can find my repository for this second day lab: https://github.com/maorbak/ctf-collab.git'
+}
+
+printMessage_url = f"{config['WEBEX_BASE_URL']}/v1/messages"
+printMessage = requests.post(printMessage_url, headers=headers, data=payloadMessage)
